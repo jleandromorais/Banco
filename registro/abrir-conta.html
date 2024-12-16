@@ -11,6 +11,9 @@
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-3xl font-bold text-center mb-8 text-white">Abra Sua Conta</h1>
         
+        <!-- Div para mensagens de sucesso/erro -->
+        <div id="feedbackMessage" class="text-center mb-4"></div>
+
         <form id="accountForm" class="max-w-3xl mx-auto space-y-8 bg-white p-6 rounded-lg shadow-lg">
             <!-- Seção 1: Dados Pessoais -->
             <div class="p-6 rounded-lg shadow">
@@ -18,38 +21,36 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium mb-1">Nome completo *</label>
-                        <input type="text" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                        <input type="text" id="nomeCompleto" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Data de nascimento *</label>
-                        <input type="date" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                        <input type="date" id="dataNascimento" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Nacionalidade *</label>
-                        <input type="text" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                        <input type="text" id="nacionalidade" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Naturalidade *</label>
-                        <input type="text" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                        <input type="text" id="naturalidade" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Estado civil *</label>
-                        <select required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                        <select id="estadoCivil" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                             <option value="">Selecione</option>
-                            <option>Solteiro(a)</option>
-                            <option>Casado(a)</option>
-                            <option>Divorciado(a)</option>
-                            <option>Viúvo(a)</option>
+                            <option>Solteiro</option>
+                            <option>Casado</option>
+                            <option>Viúvo</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Nome do pai </label>
-                        <input type="tel" id="telefone" class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
-                        
+                        <input type="text" id="nomePai" class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                     </div>
                     <div class="md:col-span-2">
                         <label class="block text-sm font-medium mb-1">Nome da mãe *</label>
-                        <input type="text" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                        <input type="text" id="nomeMae" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                     </div>
                 </div>
             </div>
@@ -60,17 +61,19 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="md:col-span-2">
                         <label class="block text-sm font-medium mb-1">Endereço *</label>
-                        <input type="text" required placeholder="Rua" class="w-full p-2 border rounded mb-2 focus:ring-2 focus:ring-yellow-500">
+                        <div>
+                            <input type="text" id="cep" required placeholder="CEP" class="w-full p-2 border rounded mt-2 focus:ring-2 focus:ring-yellow-500">          
+                        </div>
+                        <input type="text" id="rua" required placeholder="Rua" class="w-full p-2 border rounded mb-2 focus:ring-2 focus:ring-yellow-500">
                         <div class="grid grid-cols-2 gap-2">
-                            <input type="text" required placeholder="Número" class="p-2 border rounded focus:ring-2 focus:ring-yellow-500">
-                            <input type="text" placeholder="Complemento" class="p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                            <input type="text" id="numero" required placeholder="Número" class="p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                            <input type="text" id="complemento" placeholder="Complemento" class="p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                         </div>
-                        <input type="text" required placeholder="Bairro" class="w-full p-2 border rounded mt-2 focus:ring-2 focus:ring-yellow-500">
+                        <input type="text" id="bairro" required placeholder="Bairro" class="w-full p-2 border rounded mt-2 focus:ring-2 focus:ring-yellow-500">
                         <div class="grid grid-cols-2 gap-2 mt-2">
-                            <input type="text" required placeholder="Cidade" class="p-2 border rounded focus:ring-2 focus:ring-yellow-500">
-                            <input type="text" required placeholder="Estado" class="p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                            <input type="text" id="cidade" required placeholder="Cidade" class="p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                            <input type="text" id="estado" required placeholder="Estado" class="p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                         </div>
-                        <input type="text" id="cep" required placeholder="CEP" class="w-full p-2 border rounded mt-2 focus:ring-2 focus:ring-yellow-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Telefone celular *</label>
@@ -82,12 +85,11 @@
                     </div>
                     <div class="md:col-span-2">
                         <label class="block text-sm font-medium mb-1">E-mail *</label>
-                        <input type="email" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                        <input type="email" id="email" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                     </div>
                 </div>
             </div>
             
-
             <!-- Seção 3: Escolhas Relacionadas à Conta -->
             <div class="p-6 rounded-lg shadow">
                 <h2 class="text-xl font-semibold mb-4 text-[#4169E1]">Escolhas da Conta</h2>
@@ -96,32 +98,32 @@
                         <label class="block text-sm font-medium mb-2">Tipo de conta *</label>
                         <div class="flex gap-4">
                             <label class="flex items-center">
-                                <input type="radio" name="tipoConta" required class="mr-2">
+                                <input type="radio" name="tipoConta" id="tipoConta1" value="Corrente" required class="mr-2">
                                 Conta-corrente
                             </label>
                             <label class="flex items-center">
-                                <input type="radio" name="tipoConta" required class="mr-2">
+                                <input type="radio" name="tipoConta" id="tipoConta2" value="Poupança" required class="mr-2">
                                 Conta poupança
                             </label>
                             <label class="flex items-center">
-                                <input type="radio" name="tipoConta" required class="mr-2">
+                                <input type="radio" name="tipoConta" id="tipoConta3" value="Conjunta" required class="mr-2">
                                 Conta conjunta
                             </label>
                         </div>
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Agência *</label>
-                        <input type="text" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
+                        <input type="text" id="agencia" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-2">Cartões desejados</label>
                         <div class="flex gap-4">
                             <label class="flex items-center">
-                                <input type="checkbox" name="cartoes" class="mr-2">
+                                <input type="checkbox" name="cartoes" value="Debito" id="cartaoDebito" class="mr-2">
                                 Débito
                             </label>
                             <label class="flex items-center">
-                                <input type="checkbox" name="cartoes" class="mr-2">
+                                <input type="checkbox" name="cartoes" value="Credito" id="cartaoCredito" class="mr-2">
                                 Crédito
                             </label>
                         </div>
@@ -142,6 +144,7 @@
                 <button type="submit" class="bg-yellow-500 text-white px-8 py-3 rounded-full hover:bg-yellow-600 transition">
                     Registrar
                 </button>
+                
                 <button type="reset" class="bg-gray-500 text-white px-8 py-3 rounded-full hover:bg-gray-600 transition">
                     Cancelar
                 </button>
@@ -150,18 +153,81 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            IMask(document.getElementById('cpf'), { mask: '000.000.000-00' });
-            IMask(document.getElementById('celular'), { mask: '(00) 00000-0000' });
-            IMask(document.getElementById('telefone'), { mask: '(00) 0000-0000' });
-            IMask(document.getElementById('cep'), { mask: '00000-000' });
+       document.getElementById('accountForm').addEventListener('submit', function (e) {
+    e.preventDefault();  // Impede o envio padrão do formulário
 
-            const form = document.getElementById('accountForm');
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Formulário enviado com sucesso!');
-            });
+    // Garante que os dados sejam enviados apenas se a requisição for para a API
+    if (isDirectlyCallingAPI()) {
+        const formData = new FormData(this);
+
+        const tipoCartao = [];
+        if (document.getElementById('cartaoDebito').checked) tipoCartao.push('Debito');
+        if (document.getElementById('cartaoCredito').checked) tipoCartao.push('Credito');
+
+        const data = {
+            nomeCompleto: formData.get('nomeCompleto'),
+            dataNascimento: formData.get('dataNascimento'),
+            nacionalidade: formData.get('nacionalidade'),
+            naturalidade: formData.get('naturalidade'),
+            estadoCivil: formData.get('estadoCivil'),
+            nomePai: formData.get('nomePai'),
+            nomeMae: formData.get('nomeMae'),
+            email: formData.get('email'),
+            cpf: formData.get('cpf'),
+            tipoConta: formData.get('tipoConta'),
+            agencia: formData.get('agencia'),
+            tipoCartao: tipoCartao,  // Lista com os tipos de cartão selecionados
+            endereco: {
+                rua: formData.get('rua'),
+                numero: formData.get('numero'),
+                complemento: formData.get('complemento'),
+                bairro: formData.get('bairro'),
+                cidade: formData.get('cidade'),
+                estado: formData.get('estado'),
+                cep: formData.get('cep')
+            },
+            celular: formData.get('celular'),
+            telefone: formData.get('telefone')
+        };
+
+        // Exibe uma mensagem de carregando enquanto envia os dados
+        document.getElementById('feedbackMessage').innerHTML = "Enviando dados...";
+
+        // Envia os dados via fetch para o backend
+        fetch('http://localhost:8080/Registro', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)  // Envia os dados no formato JSON
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao enviar os dados: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(responseData => {
+            // Exibe a mensagem de sucesso
+            document.getElementById('feedbackMessage').innerHTML = `<p class="text-green-500">Dados enviados com sucesso!</p>`;
+            console.log(responseData);
+        })
+        .catch(error => {
+            // Exibe a mensagem de erro
+            document.getElementById('feedbackMessage').innerHTML = `<p class="text-red-500">Houve um erro ao enviar os dados.</p>`;
+            console.error(error);
         });
+    } else {
+        alert('A requisição não foi feita diretamente à API!');
+    }
+});
+
+// Função de exemplo para determinar se a requisição é diretamente para a API
+function isDirectlyCallingAPI() {
+    // Aqui você pode verificar se a condição para enviar os dados é atendida
+    return true; // Se sempre quiser enviar diretamente, apenas retorne 'true'
+}
+
     </script>
 </body>
 </html>

@@ -21,7 +21,7 @@
 }]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/jleandromorais/chocobank.git",
+    "url": "https://github.com/jleandromorais/Banco.git",
     "accountId": "3e55857d-ac50-47a2-a1b8-8e502c3a60a8"
   }
 }]]></component>
@@ -47,7 +47,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/leand/Downloads/Banco/banco",
+    "last_opened_file_path": "C:/Users/leand/Downloads/banco2/banco2",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
