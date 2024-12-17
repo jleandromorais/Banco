@@ -76,14 +76,6 @@
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium mb-1">Telefone celular *</label>
-                        <input type="tel" id="celular" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-1">Telefone fixo</label>
-                        <input type="tel" id="telefone" class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
-                    </div>
-                    <div class="md:col-span-2">
                         <label class="block text-sm font-medium mb-1">E-mail *</label>
                         <input type="email" id="email" required class="w-full p-2 border rounded focus:ring-2 focus:ring-yellow-500">
                     </div>
@@ -153,81 +145,94 @@
     </div>
 
     <script>
-       document.getElementById('accountForm').addEventListener('submit', function (e) {
+document.getElementById('accountForm').addEventListener('submit', function (e) {
     e.preventDefault();  // Impede o envio padrão do formulário
 
-    // Garante que os dados sejam enviados apenas se a requisição for para a API
-    if (isDirectlyCallingAPI()) {
-        const formData = new FormData(this);
+    // Coletando os valores dos campos do formulário
+    const nomeCompleto = document.getElementById('nomeCompleto').value.trim();
+    const dataNascimento = document.getElementById('dataNascimento').value;
+    const nacionalidade = document.getElementById('nacionalidade').value.trim();
+    const naturalidade = document.getElementById('naturalidade').value.trim();
+    const estadoCivil = document.getElementById('estadoCivil').value;
+    const nomePai = document.getElementById('nomePai').value.trim();
+    const nomeMae = document.getElementById('nomeMae').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const cpf = document.getElementById('cpf').value.trim();
+    const tipoConta = document.querySelector('input[name="tipoConta"]:checked') ? document.querySelector('input[name="tipoConta"]:checked').value : '';
+    const agencia = document.getElementById('agencia').value.trim();
+    const rua = document.getElementById('rua').value.trim();
+    const numero = document.getElementById('numero').value.trim();
+    const complemento = document.getElementById('complemento').value.trim();
+    const bairro = document.getElementById('bairro').value.trim();
+    const cidade = document.getElementById('cidade').value.trim();
+    const estado = document.getElementById('estado').value.trim();
+    const cep = document.getElementById('cep').value.trim();
 
-        const tipoCartao = [];
-        if (document.getElementById('cartaoDebito').checked) tipoCartao.push('Debito');
-        if (document.getElementById('cartaoCredito').checked) tipoCartao.push('Credito');
+    // Coletando os tipos de cartão selecionados
+    const tipoCartao = [];
+    if (document.getElementById('cartaoDebito').checked) tipoCartao.push('Debito');
+    if (document.getElementById('cartaoCredito').checked) tipoCartao.push('Credito');
 
-        const data = {
-            nomeCompleto: formData.get('nomeCompleto'),
-            dataNascimento: formData.get('dataNascimento'),
-            nacionalidade: formData.get('nacionalidade'),
-            naturalidade: formData.get('naturalidade'),
-            estadoCivil: formData.get('estadoCivil'),
-            nomePai: formData.get('nomePai'),
-            nomeMae: formData.get('nomeMae'),
-            email: formData.get('email'),
-            cpf: formData.get('cpf'),
-            tipoConta: formData.get('tipoConta'),
-            agencia: formData.get('agencia'),
-            tipoCartao: tipoCartao,  // Lista com os tipos de cartão selecionados
-            endereco: {
-                rua: formData.get('rua'),
-                numero: formData.get('numero'),
-                complemento: formData.get('complemento'),
-                bairro: formData.get('bairro'),
-                cidade: formData.get('cidade'),
-                estado: formData.get('estado'),
-                cep: formData.get('cep')
-            },
-            celular: formData.get('celular'),
-            telefone: formData.get('telefone')
-        };
+    // Montando o JSON
+    const data = {
+        nomeCompleto: nomeCompleto,
+        dataNascimento: dataNascimento,
+        nacionalidade: nacionalidade,
+        naturalidade: naturalidade,
+        estadoCivil: estadoCivil,
+        nomePai: nomePai,
+        nomeMae: nomeMae,
+        email: email,
+        cpf: cpf,
+        tipoConta: tipoConta,
+        agencia: agencia,
+        cartoes: tipoCartao.length ? tipoCartao : [],  // Se não houver cartões selecionados, envia um array vazio
+        rua: rua,
+        numero: numero,
+        complemento: complemento,
+        bairro: bairro,
+        cidade: cidade,
+        estado: estado,
+        cep: cep
+    };
 
-        // Exibe uma mensagem de carregando enquanto envia os dados
-        document.getElementById('feedbackMessage').innerHTML = "Enviando dados...";
+    // Verificando os dados no console antes de enviar
+    console.log("JSON que será enviado:", JSON.stringify(data));
 
-        // Envia os dados via fetch para o backend
-        fetch('http://localhost:8080/Registro', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)  // Envia os dados no formato JSON
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao enviar os dados: ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(responseData => {
-            // Exibe a mensagem de sucesso
-            document.getElementById('feedbackMessage').innerHTML = `<p class="text-green-500">Dados enviados com sucesso!</p>`;
-            console.log(responseData);
-        })
-        .catch(error => {
-            // Exibe a mensagem de erro
-            document.getElementById('feedbackMessage').innerHTML = `<p class="text-red-500">Houve um erro ao enviar os dados.</p>`;
-            console.error(error);
-        });
-    } else {
-        alert('A requisição não foi feita diretamente à API!');
-    }
+    // Enviando os dados via fetch
+    fetch('http://localhost:8080/registro', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        console.log("Resposta recebida:", response);
+        if (!response.ok) {
+            return response.text().then(err => {
+                console.error("Erro retornado pelo backend:", err);
+                throw new Error("Erro do servidor: " + response.status);
+            });
+        }
+        return response.json();
+    })
+    .then(responseData => {
+        console.log("Resposta do backend:", responseData);
+        document.getElementById('feedbackMessage').innerHTML = 'Conta registrada com sucesso!';
+        alert('Conta registrada com sucesso!');
+        document.getElementById('accountForm').reset();
+    })
+    .catch(error => {
+        console.error('Erro ao enviar os dados:', error);
+        document.getElementById('feedbackMessage').innerHTML = 'Erro ao registrar a conta. Verifique os dados e tente novamente.';
+        alert('Erro: ' + error.message);
+    });
 });
 
-// Função de exemplo para determinar se a requisição é diretamente para a API
-function isDirectlyCallingAPI() {
-    // Aqui você pode verificar se a condição para enviar os dados é atendida
-    return true; // Se sempre quiser enviar diretamente, apenas retorne 'true'
-}
+
 
     </script>
 </body>
 </html>
+
