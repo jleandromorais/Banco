@@ -14,10 +14,11 @@
             <div class="flex justify-between items-center h-16">
                 <div class="text-2xl font-bold">BancoDigital</div>
                 <div class="hidden md:flex space-x-8">
+                    <a href="#" class="hover:text-gray-200">Home</a>
                     <a href="/para-voce/para-voce.html" class="hover:text-gray-200">Para Você</a>
-                    <a href="#" class="hover:text-gray-200">Para Empresa</a>
-                    <a href="#" class="hover:text-gray-200">Investimentos</a>
-                    <a href="#" class="hover:text-gray-200">Serviços</a>
+                    <a href="/Para-empressa/para-empresa.html" class="hover:text-gray-200">Para Empresa</a>
+                    <a href="/investimentos/investimentos.html" class="hover:text-gray-200">Investimentos</a>
+                    <a href="/servicos.html" class="hover:text-gray-200">Serviços</a>
                 </div>
                 <button id="loginBtn" class="bg-[#4169E1] px-6 py-2 rounded-full hover:bg-blue-700">
                     Acessar Conta
@@ -183,7 +184,6 @@ loginForm.addEventListener('submit', async (e) => {
     const agency = document.getElementById('agency').value;
     const account = document.getElementById('cpf').value;
 
-    // Enviar os dados para a API de validação com a chave correta
     try {
         const response = await fetch('http://localhost:8080/validar-conta', {
             method: 'POST',
@@ -191,13 +191,12 @@ loginForm.addEventListener('submit', async (e) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                cpf: account,  // "account" agora é o CPF
+                cpf: account,
                 agencia: agency,
-                nomeCompleto: fullName,  // Mantém o nome completo conforme você pediu
+                nomeCompleto: fullName,
             }),
         });
 
-        // Verificando se a resposta da API foi recebida corretamente
         if (!response.ok) {
             throw new Error('Falha na conexão com o servidor. Tente novamente mais tarde.');
         }
@@ -205,25 +204,24 @@ loginForm.addEventListener('submit', async (e) => {
         const result = await response.json();
 
         if (result.success) {
-            // Se a conta for validada, exibir o nome do usuário no botão
-            const firstName = fullName.split(' ')[0];  // Pega o primeiro nome
-            loginBtn.textContent = `Bem-vindo, ${firstName}`; // Exibe o nome no botão
-            loginBtn.disabled = true; // Desabilita o botão após o login
+            // Salvar o primeiro nome no localStorage
+            const firstName = fullName.split(' ')[0];
+            localStorage.setItem('userName', firstName);
+
+            loginBtn.textContent = `Bem-vindo, ${firstName}`;
+            loginBtn.disabled = true;
             loginBtn.classList.add('cursor-default');
-            loginModal.classList.add('hidden'); // Fecha o modal
+            loginModal.classList.add('hidden');
         } else {
-            // Se a validação falhar, exibir um aviso de erro
             errorMessage.textContent = result.message || 'Erro na validação da conta. Tente novamente.';
-            errorMessage.classList.remove('hidden'); // Exibe a mensagem de erro
+            errorMessage.classList.remove('hidden');
         }
     } catch (error) {
         console.error("Erro na validação:", error);
-        // Se a falha for de conexão ou outro erro
         errorMessage.textContent = error.message || 'Erro ao validar conta. Tente novamente.';
-        errorMessage.classList.remove('hidden'); // Exibe a mensagem de erro
+        errorMessage.classList.remove('hidden');
     }
 });
-
 
     </script>
     

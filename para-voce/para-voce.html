@@ -14,13 +14,14 @@
             <div class="flex justify-between items-center h-16">
                 <div class="text-2xl font-bold">BancoDigital</div>
                 <div class="hidden md:flex space-x-8">
+                    <a href="/banco-digital.html" class="hover:text-gray-200">Home</a>
                     <a href="#" class="hover:text-gray-200 font-bold">Para Você</a>
-                    <a href="#" class="hover:text-gray-200">Para Empresa</a>
-                    <a href="#" class="hover:text-gray-200">Investimentos</a>
+                    <a href="/Para-empressa/para-empresa.html" class="hover:text-gray-200">Para Empresa</a>
+                    <a href="/investimentos/investimentos.html" class="hover:text-gray-200">Investimentos</a>
                     <a href="#" class="hover:text-gray-200">Serviços</a>
                 </div>
                 <button id="loginBtn" class="bg-[#4169E1] px-6 py-2 rounded-full hover:bg-blue-700">
-                    Acessar Conta
+                    Saiba mais
                 </button>
                 
             </div>
@@ -179,31 +180,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        const loginBtn = document.getElementById('loginBtn');
-        const loginModal = document.getElementById('loginModal');
-        const loginForm = document.getElementById('loginForm');
-        const cancelLogin = document.getElementById('cancelLogin');
 
-        loginBtn.addEventListener('click', () => {
-            loginModal.classList.remove('hidden');
-        });
-
-        cancelLogin.addEventListener('click', () => {
-            loginModal.classList.add('hidden');
-        });
-
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const fullName = document.getElementById('fullName').value;
-            const firstName = fullName.split(' ')[0];
-            
-            // Update button text and disable form
-            loginBtn.textContent = `Bem-vindo, ${firstName}`;
-            loginBtn.disabled = true;
-            loginBtn.classList.add('cursor-default');
-            loginModal.classList.add('hidden');
-        });
-    </script>
 </body>
 </html>

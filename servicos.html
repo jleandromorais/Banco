@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Banco Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-yellow-500 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-2xl font-bold">BancoDigital</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/para-voce/para-voce.html" class="hover:text-gray-200">Para Você</a>
+                    <a href="#" class="hover:text-gray-200">Para Empresa</a>
+                    <a href="#" class="hover:text-gray-200">Investimentos</a>
+                    <a href="/servicos.html" class="hover:text-gray-200 font-bold">Serviços</a>
+                </div>
+                <button id="loginBtn" class="bg-[#4169E1] px-6 py-2 rounded-full hover:bg-blue-700">
+                    Acessar Conta
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Grid -->
+    <div class="container mx-auto px-4 py-12">
+        <h1 class="text-3xl font-bold text-center mb-12">Nossos Serviços</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Consultas -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <i class="fas fa-search-dollar text-3xl text-yellow-500 mb-4"></i>
+                <h2 class="text-xl font-semibold mb-3">Consultas de Saldo e Extrato</h2>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• Saldo em tempo real</li>
+                    <li>• Extrato detalhado</li>
+                    <li>• Histórico de transações</li>
+                </ul>
+            </div>
+
+            <!-- Transferências -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <i class="fas fa-exchange-alt text-3xl text-[#4169E1] mb-4"></i>
+                <h2 class="text-xl font-semibold mb-3">Transferências e Pagamentos</h2>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• PIX</li>
+                    <li>• TED/DOC</li>
+                    <li>• Pagamento de contas</li>
+                </ul>
+            </div>
+
+            <!-- Empréstimos -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <i class="fas fa-hand-holding-usd text-3xl text-yellow-500 mb-4"></i>
+                <h2 class="text-xl font-semibold mb-3">Empréstimos e Financiamentos</h2>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• Crédito pessoal</li>
+                    <li>• Financiamento de veículos</li>
+                    <li>• Financiamento imobiliário</li>
+                </ul>
+            </div>
+
+            <!-- Cartões -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <i class="fas fa-credit-card text-3xl text-[#4169E1] mb-4"></i>
+                <h2 class="text-xl font-semibold mb-3">Cartões</h2>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• Cartão de crédito</li>
+                    <li>• Cartão de débito</li>
+                    <li>• Gestão de faturas</li>
+                </ul>
+            </div>
+
+            <!-- Gestão de Orçamento -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <i class="fas fa-chart-pie text-3xl text-yellow-500 mb-4"></i>
+                <h2 class="text-xl font-semibold mb-3">Gestão de Orçamento</h2>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• Categorização de gastos</li>
+                    <li>• Metas financeiras</li>
+                    <li>• Relatórios personalizados</li>
+                </ul>
+            </div>
+
+            <!-- Seguros -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <i class="fas fa-shield-alt text-3xl text-[#4169E1] mb-4"></i>
+                <h2 class="text-xl font-semibold mb-3">Seguros</h2>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• Seguro de vida</li>
+                    <li>• Seguro auto</li>
+                    <li>• Seguro residencial</li>
+                </ul>
+            </div>
+
+            <!-- Recarga -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <i class="fas fa-mobile-alt text-3xl text-yellow-500 mb-4"></i>
+                <h2 class="text-xl font-semibold mb-3">Recarga e Outros Serviços</h2>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• Recarga de celular</li>
+                    <li>• Pagamento de serviços</li>
+                    <li>• Outros serviços digitais</li>
+                </ul>
+            </div>
+
+            <!-- Apoio ao Cliente -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <i class="fas fa-headset text-3xl text-[#4169E1] mb-4"></i>
+                <h2 class="text-xl font-semibold mb-3">Apoio ao Cliente</h2>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• Chat online</li>
+                    <li>• Telefone 24h</li>
+                    <li>• E-mail de suporte</li>
+                </ul>
+            </div>
+
+            <!-- Segurança -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <i class="fas fa-lock text-3xl text-yellow-500 mb-4"></i>
+                <h2 class="text-xl font-semibold mb-3">Autenticação e Segurança</h2>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• Autenticação 2 fatores</li>
+                    <li>• Biometria</li>
+                    <li>• Proteção de dados</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Para Você</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-500">Conta Digital</a></li>
+                        <li><a href="#" class="hover:text-yellow-500">Cartões</a></li>
+                        <li><a href="#" class="hover:text-yellow-500">Empréstimos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Para Empresa</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-500">Conta PJ</a></li>
+                        <li><a href="#" class="hover:text-yellow-500">Maquininhas</a></li>
+                        <li><a href="#" class="hover:text-yellow-500">Financiamentos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Ajuda</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-500">Central de Ajuda</a></li>
+                        <li><a href="#" class="hover:text-yellow-500">Ouvidoria</a></li>
+                        <li><a href="#" class="hover:text-yellow-500">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p>&copy; 2024 BancoDigital. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

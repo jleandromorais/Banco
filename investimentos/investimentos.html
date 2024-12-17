@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investimentos - Banco Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="investimentos.js" defer></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-yellow-500 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-2xl font-bold">BancoDigital</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/banco-digital.html" class="hover:text-gray-200">Home</a>
+                    <a href="/para-voce/para-voce.html" class="hover:text-gray-200">Para Você</a>
+                    <a href="/Para-empressa/para-empresa.html" class="hover:text-gray-200">Para Empresa</a>
+                    <a href="#" class="hover:text-gray-200 font-bold">Investimentos</a>
+                    <a href="#" class="hover:text-gray-200">Serviços</a>
+                </div>
+                <button class="bg-[#4169E1] px-6 py-2 rounded-full hover:bg-blue-700">
+                    Saiba mais
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-yellow-500 to-[#4169E1] py-20">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Invista no seu futuro</h1>
+            <p class="text-xl mb-8">Comece a investir hoje e construa um amanhã mais próspero</p>
+            <button class="bg-white text-yellow-500 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100">
+                Simule agora
+            </button>
+        </div>
+    </div>
+
+    <!-- Investment Products -->
+    <div class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Nossos Produtos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 border rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Renda Fixa</h3>
+                    <p class="text-gray-600 mb-4">Investimentos seguros com rentabilidade previsível</p>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>CDB: até 120% do CDI</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Tesouro Direto</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Risco: Baixo</li>
+                    </ul>
+                </div>
+                <div class="p-6 border rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Renda Variável</h3>
+                    <p class="text-gray-600 mb-4">Potencial de maiores retornos no longo prazo</p>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-chart-line text-blue-500 mr-2"></i>Ações</li>
+                        <li><i class="fas fa-chart-line text-blue-500 mr-2"></i>ETFs</li>
+                        <li><i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>Risco: Alto</li>
+                    </ul>
+                </div>
+                <div class="p-6 border rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Fundos</h3>
+                    <p class="text-gray-600 mb-4">Gestão profissional do seu patrimônio</p>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-users text-purple-500 mr-2"></i>Multimercado</li>
+                        <li><i class="fas fa-users text-purple-500 mr-2"></i>FIIs</li>
+                        <li><i class="fas fa-balance-scale text-orange-500 mr-2"></i>Risco: Moderado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Investment Simulator -->
+  <!-- Investment Simulator -->
+<div class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Simulador de Investimentos</h2>
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <form id="simulatorForm" class="space-y-6">
+                <div>
+                    <label class="block text-gray-700 mb-2">Valor inicial</label>
+                    <input id="valorInicial" type="number" class="w-full p-2 border rounded" min="100">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Prazo (meses)</label>
+                    <input id="prazo" type="number" class="w-full p-2 border rounded" min="1">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Tipo de investimento</label>
+                    <select id="tipoInvestimento" class="w-full p-2 border rounded">
+                        <option value="CDB">CDB</option>
+                        <option value="Tesouro Direto">Tesouro Direto</option>
+                        <option value="Fundos">Fundos</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-yellow-500 text-white py-3 rounded-lg hover:bg-yellow-600">
+                    Calcular
+                </button>
+            </form>
+            <!-- Resultado da Simulação -->
+            <div id="resultadoSimulacao" class="mt-6 p-4 bg-gray-50 border rounded hidden">
+                <h3 class="text-xl font-bold mb-4 text-gray-700">Resultado da Simulação:</h3>
+                <p class="text-gray-600" id="resultadoTexto"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Education Section -->
+    <div class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Educação Financeira</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 border rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Para Iniciantes</h3>
+                    <ul class="space-y-4">
+                        <li><i class="fas fa-book-open text-blue-500 mr-2"></i>O que são investimentos?</li>
+                        <li><i class="fas fa-book-open text-blue-500 mr-2"></i>Como começar a investir</li>
+                        <li><i class="fas fa-book-open text-blue-500 mr-2"></i>Perfil do investidor</li>
+                    </ul>
+                </div>
+                <div class="p-6 border rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Dicas e Estratégias</h3>
+                    <ul class="space-y-4">
+                        <li><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Diversificação</li>
+                        <li><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Planejamento financeiro</li>
+                        <li><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Análise de riscos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Depoimentos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <p class="text-gray-600 mb-4">"Comecei a investir há 1 ano e já vejo resultados significativos."</p>
+                    <p class="font-semibold">Maria S.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <p class="text-gray-600 mb-4">"O suporte da equipe foi fundamental para minhas decisões."</p>
+                    <p class="font-semibold">João P.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <p class="text-gray-600 mb-4">"Excelente variedade de produtos e atendimento personalizado."</p>
+                    <p class="font-semibold">Ana R.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQs -->
+    <div class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Perguntas Frequentes</h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="border-b pb-4">
+                    <h3 class="text-xl font-semibold mb-2">Qual o valor mínimo para começar?</h3>
+                    <p class="text-gray-600">Você pode começar com apenas R$ 100 em alguns produtos.</p>
+                </div>
+                <div class="border-b pb-4">
+                    <h3 class="text-xl font-semibold mb-2">Como faço para resgatar?</h3>
+                    <p class="text-gray-600">O resgate pode ser feito pelo app ou site, conforme as regras de cada produto.</p>
+                </div>
+                <div class="border-b pb-4">
+                    <h3 class="text-xl font-semibold mb-2">Quais são os riscos?</h3>
+                    <p class="text-gray-600">Os riscos variam conforme o produto escolhido. Consulte a descrição de cada investimento.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Fale com um Especialista</h2>
+            <button class="bg-[#4169E1] text-white px-8 py-3 rounded-full hover:bg-blue-700">
+                Agendar Consulta
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Avisos Legais</h4>
+                    <p class="text-sm text-gray-400">
+                        Investimentos envolvem riscos. Rentabilidade passada não garante rentabilidade futura.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
+                    <p>0800 123 4567</p>
+                    <p>investimentos@bancodigital.com</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p>&copy; 2024 BancoDigital. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
