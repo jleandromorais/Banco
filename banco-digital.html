@@ -157,7 +157,6 @@
     </footer>
 
     <script>
-
 const loginBtn = document.getElementById('loginBtn');
 const loginModal = document.getElementById('loginModal');
 const loginForm = document.getElementById('loginForm');
@@ -204,9 +203,9 @@ loginForm.addEventListener('submit', async (e) => {
         const result = await response.json();
 
         if (result.success) {
-            // Salvar o primeiro nome no localStorage
+            // Salvar o primeiro nome no sessionStorage
             const firstName = fullName.split(' ')[0];
-            localStorage.setItem('userName', firstName);
+            sessionStorage.setItem('userName', firstName);
 
             loginBtn.textContent = `Bem-vindo, ${firstName}`;
             loginBtn.disabled = true;
@@ -222,6 +221,43 @@ loginForm.addEventListener('submit', async (e) => {
         errorMessage.classList.remove('hidden');
     }
 });
+
+// Verificar o estado do login ao carregar qualquer página
+window.addEventListener('DOMContentLoaded', () => {
+    const userName = sessionStorage.getItem('userName');
+
+    if (userName) {
+        // Se o nome do usuário estiver no sessionStorage, mostra "Bem-vindo"
+        loginBtn.textContent = `Bem-vindo, ${userName}`;
+        loginBtn.disabled = true;
+        loginBtn.classList.add('cursor-default');
+    } else {
+        // Caso contrário, exibe "Acessar Conta"
+        loginBtn.textContent = 'Acessar Conta';
+        loginBtn.disabled = false;
+        loginBtn.classList.remove('cursor-default');
+    }
+});
+
+// Função para fazer logout
+function logout() {
+    // Remover o nome do usuário do sessionStorage
+    sessionStorage.removeItem('userName');
+
+    // Atualizar o botão de login para "Acessar Conta"
+    loginBtn.textContent = 'Acessar Conta';
+    loginBtn.disabled = false;
+    loginBtn.classList.remove('cursor-default');
+
+    // Opcionalmente, redireciona para a página inicial
+    window.location.href = 'index.html'; // Altere conforme necessário
+}
+
+// Se houver um botão de logout na página, adicione um evento para chamar a função logout
+const logoutBtn = document.getElementById('logoutBtn');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', logout);
+}
 
     </script>
     
