@@ -6,6 +6,7 @@
     <title>Transferências - Banco Digital</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="transferencia.js" defer></script>
 </head>
 <body class="bg-gray-50">
     <!-- Navbar -->
@@ -14,10 +15,7 @@
             <div class="flex justify-between items-center h-16">
                 <a href="/" class="text-2xl font-bold">BancoDigital</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="/para-voce/para-voce.html" class="hover:text-gray-200">Para Você</a>
-                    <a href="/Para-empressa/para-empresa.html" class="hover:text-gray-200">Para Empresa</a>
-                    <a href="/investimentos/investimentos.html" class="hover:text-gray-200">Investimentos</a>
-                    <a href="/servicos.html" class="hover:text-gray-200">Serviços</a>
+                    <a href="/saldo.html" class="hover:text-gray-200">Saldo e Extrato</a>
                 </div>
             </div>
         </div>
@@ -83,18 +81,25 @@
                 </form>
             </div>
         </div>
+
+        <!-- New Deposit Section -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mt-8">
+            <h2 class="text-2xl font-semibold mb-6 flex items-center">
+                <i class="fas fa-credit-card text-green-500 mr-2"></i>
+                Fazer Depósito
+            </h2>
+            <form id="depositForm" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-2">Valor a Depositar</label>
+                    <input type="number" min="0.01" step="0.01" class="w-full p-2 border rounded" required>
+                </div>
+                <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition-colors">
+                    Depositar
+                </button>
+            </form>
+        </div>
+
     </div>
 
-    <script>
-        document.getElementById('pixForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('PIX enviado com sucesso!');
-        });
-
-        document.getElementById('billForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Conta paga com sucesso!');
-        });
-    </script>
 </body>
 </html>
