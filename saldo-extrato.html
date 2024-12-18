@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saldo e Extrato - Banco Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-yellow-500 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-2xl font-bold">BancoDigital</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/servicos.html" class="hover:text-gray-200">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-3xl mx-auto">
+            <!-- Saldo Section -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-2xl font-bold mb-4">Saldo Atual</h2>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600">Saldo disponível</p>
+                        <p class="text-3xl font-bold text-green-600" id="saldoAtual">R$ ****,**</p>
+                    </div>
+                    <button onclick="toggleSaldo()" class="text-yellow-500 hover:text-yellow-600">
+                        <i class="fas fa-eye text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Extrato Section -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-4">Extrato</h2>
+                <div class="space-y-4" id="extratoList">
+                    <div class="flex justify-center">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let saldoVisivel = false;
+        const saldoReal = 2500.75;
+
+        function toggleSaldo() {
+            saldoVisivel = !saldoVisivel;
+            document.getElementById('saldoAtual').textContent = saldoVisivel ? 
+                `R$ ${saldoReal.toFixed(2)}` : 'R$ ****,**';
+        }
+
+        // Simulated transaction data
+        const transacoes = [
+            { data: '2024-01-20', descricao: 'Transferência PIX', valor: -150.00, tipo: 'debit' },
+            { data: '2024-01-19', descricao: 'Depósito', valor: 1000.00, tipo: 'credit' },
+            { data: '2024-01-18', descricao: 'Pagamento Conta', valor: -89.90, tipo: 'debit' },
+            { data: '2024-01-17', descricao: 'Recebimento Salário', valor: 3500.00, tipo: 'credit' }
+        ];
+
+        // Load transactions after a simulated delay
+        setTimeout(() => {
+            const extratoList = document.getElementById('extratoList');
+            extratoList.innerHTML = '';
+            
+            transacoes.forEach(transacao => {
+                const data = new Date(transacao.data).toLocaleDateString('pt-BR');
+                const valor = Math.abs(transacao.valor).toFixed(2);
+                const isDebit = transacao.tipo === 'debit';
+                
+                extratoList.innerHTML += `
+                    <div class="flex justify-between items-center border-b pb-2">
+                        <div>
+                            <p class="font-semibold">${transacao.descricao}</p>
+                            <p class="text-sm text-gray-500">${data}</p>
+                        </div>
+                        <p class="font-semibold ${isDebit ? 'text-red-600' : 'text-green-600'}">
+                            ${isDebit ? '-' : '+'}R$ ${valor}
+                        </p>
+                    </div>
+                `;
+            });
+        }, 1500);
+    </script>
+</body>
+</html>
