@@ -7,12 +7,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-[#1C1C1C]">
     <!-- Navbar -->
-    <nav class="bg-yellow-500 text-white">
+    <nav class="bg-[#CAFF33] text-[#1C1C1C]">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center h-16">
-                <div class="text-2xl font-bold">BancoDigital</div>
+                <div class="flex items-center space-x-2">
+                    <img src="Finance (4).png" alt="Logo BancoDigital" class="h-auto max-h-10"> <!-- Ajuste o caminho da imagem aqui -->
+                    <div class="text-2xl font-bold">Choco Bank</div>
+                </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#" class="hover:text-gray-200">Home</a>
                     <a href="/para-voce/para-voce.html" class="hover:text-gray-200">Para Você</a>
@@ -20,7 +23,7 @@
                     <a href="/investimentos/investimentos.html" class="hover:text-gray-200">Investimentos</a>
                     <a href="/servicos.html" class="hover:text-gray-200">Serviços</a>
                 </div>
-                <button id="loginBtn" class="bg-[#4169E1] px-6 py-2 rounded-full hover:bg-blue-700">
+                <button id="loginBtn" class="bg-[#9B59B6] px-6 py-2 rounded-full hover:bg-purple-700">
                     Acessar Conta
                 </button>
             </div>
@@ -28,42 +31,39 @@
     </nav>
 
     <!-- Login Modal -->
-   <!-- Login Modal -->
-<div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-    <div class="bg-white p-8 rounded-lg w-96">
-        <h2 class="text-2xl font-bold mb-4">Acessar Conta</h2>
-        <form id="loginForm" class="space-y-4">
-            <div>
-                <label class="block text-gray-700">Nome Completo</label>
-                <input type="text" id="fullName" required class="w-full p-2 border rounded">
-            </div>
-            <div>
-                <label class="block text-gray-700">Agência</label>
-                <input type="text" id="agency" required class="w-full p-2 border rounded">
-            </div>
-            <div>
-                <label class="block text-gray-700">CPF</label>
-                <input type="text" id="cpf" required class="w-full p-2 border rounded">
-            </div>
-            <div class="flex justify-end space-x-2">
-                <button type="button" id="cancelLogin" class="px-4 py-2 text-gray-600 hover:text-gray-800">Cancelar</button>
-                <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Entrar</button>
-            </div>
-        </form>
-        <!-- Adicionado o elemento de erro -->
-        <div id="errorMessage" class="text-red-500 mt-4 hidden"></div>
+    <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-[#1C1C1C] p-8 rounded-lg w-96">
+            <h2 class="text-2xl font-bold mb-4 text-[#CAFF33]">Acessar Conta</h2>
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label class="block text-[#CAFF33]">Nome Completo</label>
+                    <input type="text" id="fullName" required class="w-full p-2 border rounded">
+                </div>
+                <div>
+                    <label class="block text-[#CAFF33]">Agência</label>
+                    <input type="text" id="agency" required class="w-full p-2 border rounded">
+                </div>
+                <div>
+                    <label class="block text-[#CAFF33]">CPF</label>
+                    <input type="text" id="cpf" required class="w-full p-2 border rounded">
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button type="button" id="cancelLogin" class="px-4 py-2 text-[#1C1C1C] hover:text-[#CAFF33]">Cancelar</button>
+                    <button type="submit" class="bg-[#CAFF33] text-[#1C1C1C] px-4 py-2 rounded hover:bg-yellow-600">Entrar</button>
+                </div>
+            </form>
+            <div id="errorMessage" class="text-red-500 mt-4 hidden"></div>
+        </div>
     </div>
-</div>
-
 
     <!-- Hero Section -->
-    <div class="bg-gradient-to-r from-yellow-500 to-[#4169E1] py-20">
+    <div class="bg-gradient-to-r from-[#CAFF33] to-[#9B59B6] py-20">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 text-white">
+                <div class="md:w-1/2 text-[#1C1C1C]">
                     <h1 class="text-4xl md:text-6xl font-bold mb-4">Sua conta digital completa</h1>
                     <p class="text-xl mb-8">Abra sua conta em minutos e aproveite todos os benefícios</p>
-                    <a href="registro/abrir-conta.html" class="bg-white text-yellow-500 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100">
+                    <a href="registro/abrir-conta.html" class="bg-[#1C1C1C] text-[#CAFF33] px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100">
                         Abrir Conta Digital
                     </a>
                 </div>
@@ -75,37 +75,37 @@
     </div>
 
     <!-- Features -->
-    <div class="py-16 bg-white">
+    <div class="py-16 bg-[#1C1C1C]">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="text-center p-6">
-                    <i class="fas fa-mobile-alt text-4xl text-yellow-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">App Completo</h3>
-                    <p class="text-gray-600">Gerencie sua conta pelo celular com total praticidade</p>
+                    <i class="fas fa-mobile-alt text-4xl text-[#CAFF33] mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-[#CAFF33]">App Completo</h3>
+                    <p class="text-[#CAFF33]">Gerencie sua conta pelo celular com total praticidade</p>
                 </div>
                 <div class="text-center p-6">
-                    <i class="fas fa-shield-alt text-4xl text-[#4169E1] mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Segurança Total</h3>
-                    <p class="text-gray-600">Suas transações protegidas 24 horas por dia</p>
+                    <i class="fas fa-shield-alt text-4xl text-[#9B59B6] mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-[#CAFF33]">Segurança Total</h3>
+                    <p class="text-[#CAFF33]">Suas transações protegidas 24 horas por dia</p>
                 </div>
                 <div class="text-center p-6">
-                    <i class="fas fa-percentage text-4xl text-yellow-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Melhores Taxas</h3>
-                    <p class="text-gray-600">Economia real para seu dia a dia</p>
+                    <i class="fas fa-percentage text-4xl text-[#CAFF33] mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-[#CAFF33]">Melhores Taxas</h3>
+                    <p class="text-[#CAFF33]">Economia real para seu dia a dia</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- CTA Section -->
-    <div class="bg-gray-100 py-16">
+    <div class="bg-[#1C1C1C] py-16">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8">Pronto para começar?</h2>
+            <h2 class="text-3xl font-bold mb-8 text-[#CAFF33]">Pronto para começar?</h2>
             <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="registro/abrir-conta.html" class="bg-yellow-500 text-white px-8 py-3 rounded-full hover:bg-yellow-600 transition text-center">
+                <a href="registro/abrir-conta.html" class="bg-[#CAFF33] text-[#1C1C1C] px-8 py-3 rounded-full hover:bg-[#9B59B6] transition text-center">
                     Abrir Conta Digital
                 </a>
-                <button class="bg-[#4169E1] text-white px-8 py-3 rounded-full hover:bg-blue-700">
+                <button class="bg-[#9B59B6] text-[#1C1C1C] px-8 py-3 rounded-full hover:bg-purple-700">
                     Falar com Consultor
                 </button>
             </div>
@@ -113,48 +113,51 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-[#1C1C1C] text-[#CAFF33] py-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Para Você</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-yellow-500">Conta Digital</a></li>
-                        <li><a href="#" class="hover:text-yellow-500">Cartões</a></li>
-                        <li><a href="#" class="hover:text-yellow-500">Empréstimos</a></li>
+                        <li><a href="#" class="hover:text-[#CAFF33]">Conta Digital</a></li>
+                        <li><a href="#" class="hover:text-[#CAFF33]">Cartões</a></li>
+                        <li><a href="#" class="hover:text-[#CAFF33]">Empréstimos</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Para Empresa</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-yellow-500">Conta PJ</a></li>
-                        <li><a href="#" class="hover:text-yellow-500">Maquininhas</a></li>
-                        <li><a href="#" class="hover:text-yellow-500">Financiamentos</a></li>
+                        <li><a href="#" class="hover:text-[#CAFF33]">Conta PJ</a></li>
+                        <li><a href="#" class="hover:text-[#CAFF33]">Maquininhas</a></li>
+                        <li><a href="#" class="hover:text-[#CAFF33]">Financiamentos</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Ajuda</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-yellow-500">Central de Ajuda</a></li>
-                        <li><a href="#" class="hover:text-yellow-500">Ouvidoria</a></li>
-                        <li><a href="#" class="hover:text-yellow-500">Contato</a></li>
+                        <li><a href="#" class="hover:text-[#CAFF33]">Central de Ajuda</a></li>
+                        <li><a href="#" class="hover:text-[#CAFF33]">Ouvidoria</a></li>
+                        <li><a href="#" class="hover:text-[#CAFF33]">Contato</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Redes Sociais</h4>
                     <div class="flex space-x-4">
-                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-[#CAFF33]"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-[#CAFF33]"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-[#CAFF33]"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-[#CAFF33]"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+            <div class="mt-8 pt-8 border-t border-[#CAFF33] text-center">
                 <p>&copy; 2024 BancoDigital. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
+
+
+
 
     <script>
 const loginBtn = document.getElementById('loginBtn');
