@@ -10,12 +10,15 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navbar -->
-    <nav class="bg-yellow-500 text-white">
+    <nav class="bg-[#CAFF33] text-white">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center h-16">
-                <a href="/" class="text-2xl font-bold">BancoDigital</a>
+                <div class="flex items-center space-x-2">
+                    <img src="../Finance (4).png" alt="Logo BancoDigital" class="h-auto max-h-10"> <!-- Ajuste o caminho da imagem aqui -->
+                    <div class="text-2xl font-bold">Choco Bank</div>
+                </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="/transferencias.html" class="hover:text-gray-200">Transferências</a>
+                    <a href="../transferencia/transferencias.html" class="hover:text-gray-200">Transferências</a>
                 </div>
             </div>
         </div>
@@ -32,7 +35,7 @@
                         <p class="text-gray-600">Saldo disponível</p>
                         <p class="text-3xl font-bold text-green-600" id="saldoAtual">R$ ****,**</p>
                     </div>
-                    <button onclick="toggleSaldo()" class="text-yellow-500 hover:text-yellow-600">
+                    <button onclick="toggleSaldo()" class="text-[#CAFF33] hover:text-green-600">
                         <i class="fas fa-eye text-xl"></i>
                     </button>
                 </div>
@@ -44,7 +47,7 @@
                 <div class="space-y-4" id="extratoList">
                     <!-- Carregamento Animado -->
                     <div class="flex justify-center" id="carregamento">
-                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-500"></div>
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#CAFF33]"></div>
                     </div>
                 </div>
             </div>
@@ -60,7 +63,5 @@
             </div>
         </div>
     </div>
-
-  
 </body>
 </html>
